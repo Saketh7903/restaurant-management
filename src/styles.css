@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #4f73c9;
+  --primary-dark: #3b5fb3;
+  --danger: #e74c3c;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --border: #e0e0e0;
+  --text: #2c2c2c;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* buttons */
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+}

@@ -1,0 +1,15 @@
+<header *ngIf="isLoggedIn()">
+  <div class="left">
+    <h3>Employee Management</h3>
+  </div>
+
+  <div class="right">
+    <span class="username">
+      Hi, {{ userName }}
+    </span>
+
+    <button (click)="logout()">
+      Sign Out
+    </button>
+  </div>
+</header>

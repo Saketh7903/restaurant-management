@@ -1,0 +1,62 @@
+.employees-page {
+  display: flex;
+  gap: 28px;
+  padding: 28px;
+  background: #f2f4f7;
+  min-height: calc(100vh - 60px);
+}
+
+.left-panel {
+  flex: 2;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.right-panel {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 12px;
+}
+
+.pagination button {
+  padding: 8px 20px;
+  background: #4f73c9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #3b5fb3;
+}
+
+.pagination button:disabled {
+  background: #c8d0e0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.pagination .page-info {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  min-width: 120px;
+  text-align: center;
+}

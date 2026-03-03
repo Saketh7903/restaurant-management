@@ -1,0 +1,44 @@
+<div class="employees-page">
+
+  <!-- LEFT SIDE -->
+  <div class="left-panel">
+
+    <app-employee-list
+      [employees]="employees"
+      (edit)="onEditEmployee($event)"
+      (remove)="onDeleteEmployee($event)">
+    </app-employee-list>
+
+    <!-- 🔥 Pagination Section -->
+    <div class="pagination" *ngIf="totalPages > 1">
+
+      <button 
+        (click)="previousPage()"
+        [disabled]="currentPage === 1">
+        Previous
+      </button>
+
+      <span class="page-info">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages">
+        Next
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right-panel" *ngIf="selectedEmployee">
+    <app-employee-form
+      [employee]="selectedEmployee"
+      (save)="onSaveEmployee($event)"
+      (cancel)="onCancel()">
+    </app-employee-form>
+  </div>
+
+</div>
