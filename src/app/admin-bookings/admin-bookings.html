@@ -1,0 +1,61 @@
+<div class="bookings-page">
+
+  <div class="page-header">
+    <h2>Reservations</h2>
+    <span class="total">Total: {{ bookings.length }}</span>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Persons</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="bookings.length > 0">
+          <tr *ngFor="let booking of bookings">
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.phone }}</td>
+            <td>{{ booking.email }}</td>
+            <td>{{ booking.persons }}</td>
+            <td>{{ booking.date }}</td>
+            <td>
+              <span class="badge" [ngClass]="{
+                'pending':   booking.status === 'Pending',
+                'confirmed': booking.status === 'Confirmed',
+                'cancelled': booking.status === 'Cancelled'
+              }">{{ booking.status }}</span>
+            </td>
+            <td class="actions">
+              <button class="btn btn-success"
+                *ngIf="booking.status === 'Pending'"
+                (click)="updateStatus(booking._id!, 'Confirmed')">
+                Confirm
+              </button>
+              <button class="btn btn-warning"
+                *ngIf="booking.status === 'Confirmed'"
+                (click)="updateStatus(booking._id!, 'Cancelled')">
+                Cancel
+              </button>
+              <button class="btn btn-danger"
+                (click)="deleteBooking(booking._id!)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+        <tr *ngIf="bookings.length === 0">
+          <td colspan="7" class="empty">No reservations yet.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

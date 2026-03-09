@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeeService } from '../../../services/employee';
+import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../employees.model';
 
 @Component({
@@ -47,7 +47,7 @@ export class EmployeeCreatePageComponent {
     this.empService.addEmployee(employee).subscribe({
       next: () => {
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['/employees']);
+          this.router.navigate(['/admin/employees']);
         });
       },
       error: (err) => console.error('Error adding employee:', err)
@@ -55,6 +55,6 @@ export class EmployeeCreatePageComponent {
   }
 
   cancel(): void {
-    this.router.navigate(['/employees']);
+    this.router.navigate(['/admin/employees']);
   }
 }

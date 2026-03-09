@@ -1,27 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
-  background: #1976d2;
+  padding: 15px 30px;
+  background: #0c0c0c;
   color: #fff;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 2px solid #ffbe33;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.left h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  color: #ffbe33;
+  margin: 0;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.admin-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+}
+
+.admin-nav a:hover {
+  color: #ffbe33;
+}
+
+.admin-nav a.active {
+  background: #ffbe33;
+  color: #0c0c0c;
+  font-weight: 600;
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .username {
   font-weight: 500;
+  font-size: 14px;
+  color: #ccc;
 }
 
 button {
-  background: #fff;
-  color: #1976d2;
+  background: #ffbe33;
+  color: #0c0c0c;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 8px 20px;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #e6a800;
 }

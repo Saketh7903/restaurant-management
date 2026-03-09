@@ -19,14 +19,20 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+           "assets": [
+  "src/favicon.ico",
+  "src/assets"
+],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/feane/css/bootstrap.css",
+              "src/assets/feane/css/style.css",
+              "src/assets/feane/css/responsive.css"
+            ],
+            "scripts": [
+              "src/assets/feane/js/jquery-3.4.1.min.js",
+              "src/assets/feane/js/bootstrap.js",
+              "src/assets/feane/js/custom.js"
             ]
           },
           "configurations": {

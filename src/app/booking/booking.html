@@ -1,0 +1,70 @@
+<section class="book_section layout_padding">
+  <div class="container">
+
+    <div class="heading_container">
+      <h2>Book A Table</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+
+          <div *ngIf="successMessage" style="background:#d4edda; color:#155724; padding:12px; border-radius:6px; margin-bottom:16px;">
+            {{ successMessage }}
+          </div>
+
+          <div *ngIf="errorMessage" style="background:#f8d7da; color:#721c24; padding:12px; border-radius:6px; margin-bottom:16px;">
+            {{ errorMessage }}
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <div>
+              <input formControlName="name" type="text" class="form-control" placeholder="Your Name" />
+              <small *ngIf="f['name'].touched && f['name'].invalid" style="color:red">Name is required</small>
+            </div>
+
+            <div>
+              <input formControlName="phone" type="text" class="form-control" placeholder="Phone Number" />
+              <small *ngIf="f['phone'].touched && f['phone'].invalid" style="color:red">Valid phone is required</small>
+            </div>
+
+            <div>
+              <input formControlName="email" type="email" class="form-control" placeholder="Your Email" />
+              <small *ngIf="f['email'].touched && f['email'].invalid" style="color:red">Valid email is required</small>
+            </div>
+
+            <div>
+              <select formControlName="persons" class="form-control">
+                <option value="" disabled>How many persons?</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <small *ngIf="f['persons'].touched && f['persons'].invalid" style="color:red">Please select persons</small>
+            </div>
+
+            <div>
+              <input formControlName="date" type="date" class="form-control" />
+              <small *ngIf="f['date'].touched && f['date'].invalid" style="color:red">Date is required</small>
+            </div>
+
+            <div class="btn_box">
+              <button type="submit" [disabled]="loading">
+                {{ loading ? 'Booking...' : 'Book Now' }}
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="map_container">
+          <div id="googleMap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<section class="food_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Our Menu</h2>
+    </div>
+
+    <ul class="filters_menu">
+      <li [class.active]="activeFilter === 'all'" (click)="setFilter('all')">All</li>
+      <li [class.active]="activeFilter === 'burger'" (click)="setFilter('burger')">Burger</li>
+      <li [class.active]="activeFilter === 'pizza'" (click)="setFilter('pizza')">Pizza</li>
+      <li [class.active]="activeFilter === 'pasta'" (click)="setFilter('pasta')">Pasta</li>
+      <li [class.active]="activeFilter === 'fries'" (click)="setFilter('fries')">Fries</li>
+    </ul>
+
+    <div *ngIf="loading" style="text-align:center; padding: 40px;">
+      <p>Loading menu...</p>
+    </div>
+
+    <div class="filters-content" *ngIf="!loading">
+      <div class="row">
+
+        <div class="col-sm-6 col-lg-4" *ngFor="let item of filteredItems">
+          <div class="box">
+            <div class="img-box">
+              <img
+                [src]="item.image || 'assets/feane/images/f1.png'"
+                [alt]="item.name"
+                onerror="this.src='assets/feane/images/f1.png'" />
+            </div>
+            <div class="detail-box">
+              <h5>{{ item.name }}</h5>
+              <p>{{ item.description }}</p>
+              <div class="options">
+                <h6>${{ item.price }}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="filteredItems.length === 0" style="text-align:center; padding: 40px; width:100%">
+          <p>No items in this category.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,46 @@
+.bookings-page { padding: 20px; }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.total {
+  background: #ffbe33;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.table-card { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge.pending   { background: #fff3cd; color: #856404; }
+.badge.confirmed { background: #d4edda; color: #155724; }
+.badge.cancelled { background: #f8d7da; color: #721c24; }
+
+.actions { display: flex; gap: 8px; }
+
+.btn-success { background: #28a745; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+.btn-warning { background: #ffc107; color: #000; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+.btn-danger  { background: #dc3545; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+
+.empty { text-align: center; color: #999; padding: 30px; }

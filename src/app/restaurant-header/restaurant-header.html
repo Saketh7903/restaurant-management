@@ -1,0 +1,49 @@
+<header class="header_section">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+
+      <a class="navbar-brand" routerLink="/">
+        <span>Feane</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mx-auto">
+
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/menu">Menu</a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li>
+
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/booking">Book Table</a>
+          </li>
+
+        </ul>
+
+        <div class="user_option">
+          <a routerLink="/login" class="order_online">Admin</a>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</header>

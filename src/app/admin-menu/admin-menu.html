@@ -1,0 +1,93 @@
+<div class="menu-admin-page">
+
+  <div class="page-header">
+    <h2>Menu Management</h2>
+    <button class="btn btn-primary" (click)="showForm = !showForm">
+      {{ showForm ? 'Cancel' : '+ Add Item' }}
+    </button>
+  </div>
+
+  <!-- Add / Edit Form -->
+  <div class="form-card" *ngIf="showForm">
+    <h3>{{ editingId ? 'Edit Item' : 'Add New Item' }}</h3>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input formControlName="name" type="text" placeholder="e.g. Delicious Pizza" />
+          <small *ngIf="f['name'].touched && f['name'].invalid">Name is required</small>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select formControlName="category">
+            <option value="" disabled selected>Select category</option>
+            <option value="burger">Burger</option>
+            <option value="pizza">Pizza</option>
+            <option value="pasta">Pasta</option>
+            <option value="fries">Fries</option>
+          </select>
+          <small *ngIf="f['category'].touched && f['category'].invalid">Category is required</small>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Price ($)</label>
+          <input formControlName="price" type="number" placeholder="e.g. 15" />
+          <small *ngIf="f['price'].touched && f['price'].invalid">Valid price is required</small>
+        </div>
+        <div class="form-group">
+          <label>Image URL</label>
+          <input formControlName="image" type="text" placeholder="e.g. assets/feane/images/f1.png" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" placeholder="Short description"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-outline" type="button" (click)="cancelForm()">Cancel</button>
+        <button class="btn btn-primary" type="submit">{{ editingId ? 'Update Item' : 'Add Item' }}</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Menu Items Table -->
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+  <ng-container *ngIf="menuItems.length > 0">
+    <tr *ngFor="let item of menuItems">
+      <td><img [src]="item.image" [alt]="item.name" class="thumb" onerror="this.src='assets/feane/images/f1.png'" /></td>
+      <td>{{ item.name }}</td>
+      <td><span class="badge">{{ item.category }}</span></td>
+      <td>${{ item.price }}</td>
+      <td class="desc">{{ item.description }}</td>
+      <td class="actions">
+        <button class="btn btn-outline" (click)="editItem(item)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteItem(item._id!)">Delete</button>
+      </td>
+    </tr>
+  </ng-container>
+  <tr *ngIf="menuItems.length === 0">
+    <td colspan="6" class="empty">No menu items yet. Add your first item!</td>
+  </tr>
+</tbody>
+    </table>
+  </div>
+
+</div>

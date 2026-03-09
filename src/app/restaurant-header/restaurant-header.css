@@ -1,0 +1,5 @@
+/* Dark background for header so white nav text is always visible */
+:host {
+  display: block;
+  background-color: #0c0c0c;
+}

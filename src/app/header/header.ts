@@ -26,7 +26,6 @@ export class HeaderComponent {
     return this.authService.isLoggedIn();
   }
 
-  // ✅ READ USER NAME DYNAMICALLY
   get userName(): string {
     const user = this.authService.getCurrentUser();
     return user ? user.name : '';
